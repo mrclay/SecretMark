@@ -1,0 +1,20 @@
+body {
+    margin: 1em 0;
+}
+.page, #msg, #footer {
+    display:none;
+}
+#decrypted {
+    border: 1px solid #cccccc;
+    background: #fff;
+    cursor: default;
+    border-radius: 3px;
+    color: #000;
+    box-shadow: none;
+}
+#dataUri b {
+    font-family: monospace;
+}
+#cipherText {
+    cursor: default;
+}
