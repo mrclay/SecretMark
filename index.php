@@ -120,7 +120,7 @@ function showPage($minifyAvailable = false) {
 </div>
 
 <?php if ($minifyAvailable): ?>
-    <script src="/min/b=<?php echo $path ?>/js&amp;f=jquery.min.js,jquery.ba-bbq.min.js,sjcl.js,MrClay/LocationHash.js,app.js"></script>
+    <script src="/min/b=<?php echo $path ?>/js&amp;f=jquery.min.js,jquery.ba-bbq.min.js,sjcl.js,js,app.js"></script>
 <?php else: ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script src="js/jquery.ba-bbq.min.js"></script>
