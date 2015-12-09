@@ -1,23 +1,14 @@
 <?php
 
-/**
- * @param bool $minifyAvailable is Minify installed at URI /min/ ?
- */
-function showPage($minifyAvailable = false) {
-    header('Content-Type: text/html; charset=utf-8');
-    $path = ltrim(dirname($_SERVER['SCRIPT_NAME']), '/');
-    ?>
+header('Last-Modified: ' . gmdate('D, d M Y H:i:s T', filemtime(__FILE__)));
+
+?>
 <!doctype html>
 <head>
     <meta charset="utf-8">
     <title>SecretMark | mrclay.org</title>
-
-<?php if ($minifyAvailable): ?>
-    <link href="/min/b=<?php echo $path ?>/css&amp;f=bootstrap.min.css,app.css" rel="stylesheet">
-<?php else: ?>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
-<?php endif; ?>
 </head>
 <body>
 <div class="container">
@@ -119,37 +110,8 @@ function showPage($minifyAvailable = false) {
     </div>
 </div>
 
-<?php if ($minifyAvailable): ?>
-    <script src="/min/b=<?php echo $path ?>/js&amp;f=jquery.min.js,jquery.ba-bbq.min.js,sjcl.js,js,app.js"></script>
-<?php else: ?>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script src="js/jquery.ba-bbq.min.js"></script>
-    <script src="js/sjcl.js"></script>
-    <script src="js/app.js"></script>
-<?php endif; ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="js/jquery.ba-bbq.min.js"></script>
+<script src="js/sjcl.js"></script>
+<script src="js/app.js"></script>
 </body>
-</html>
-<?php
-}
-
-if (! is_file($_SERVER['DOCUMENT_ROOT'] . '/min/lib/Minify.php')) {
-    showPage();
-    exit;
-}
-
-function getContent() {
-    ob_start();
-    showPage(true);
-    return ob_get_clean();
-}
-
-set_include_path($_SERVER['DOCUMENT_ROOT'] . '/min/lib/' . PATH_SEPARATOR . get_include_path());
-require 'Minify.php';
-Minify::setCache(sys_get_temp_dir());
-Minify::serve('Files', array(
-    'files' => new Minify_Source(array(
-        'id' => md5(__FILE__),
-        'contentType' => Minify::TYPE_HTML,
-        'getContentFunc' => 'getContent',
-    ))
-));
