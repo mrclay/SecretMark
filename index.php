@@ -15,7 +15,7 @@ function showPage($minifyAvailable = false) {
 <?php if ($minifyAvailable): ?>
     <link href="/min/b=<?php echo $path ?>/css&amp;f=bootstrap.min.css,app.css" rel="stylesheet">
 <?php else: ?>
-    <link rel="stylesheet" href="//twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
 <?php endif; ?>
 </head>
