@@ -1,5 +1,10 @@
 body {
     margin: 1em 0;
+    background: #CFE8E8 url(../img/bg.jpg) repeat-x 0 0;
+}
+.container {
+    padding: 20px;
+    background: #fff;
 }
 .page, #msg, #footer {
     display:none;
