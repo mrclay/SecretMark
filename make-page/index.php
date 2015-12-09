@@ -61,7 +61,7 @@ header('Last-Modified: ' . gmdate('D, d M Y H:i:s T', $last_mod));
 	<p>By <a href="http://www.mrclay.org/">Steve Clay</a> (my <a href="http://amzn.com/w/37D5BK0ET30ZE">wish list</a>).
 		Uses <a href="http://bitwiseshiftleft.github.io/sjcl/">SJCL 1.0.3</a> (256-bit AES, PBKDF2 key generation
 		with 100K rounds)</p>
-	<p>Why? Encryption should be easy, and the storage format should work everywhere forever.</p>
+	<p>Why? HTML works everywhere and forever: ultimate storage container.</p>
 </footer>
 
 <script id="tpl_sjcl">
